@@ -25,13 +25,13 @@ jobs:
         run: dotnet build WebApp.csproj --configuration Release
 
       - name: dotnet publish
-        run:  dotnet publish WebApp.csproj -c Release -o ${{env.HOME}}/myapp
+        run:  dotnet publish WebApp.csproj -c Release -o ${{github.workspace}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path:  ${{env.HOME}}/myapp
+          path:  ${{github.workspace}}/myapp
 
   deploy:
     runs-on: windows-latest
@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'URSA'
           slot-name: 'Production'
-          package:  ${{env.HOME}}/myapp
+          package:  ${{github.workspace}}/myapp
           
