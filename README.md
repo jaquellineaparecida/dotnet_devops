@@ -47,7 +47,7 @@ A API será iniciada e estará disponível em http://localhost:5000 por padrão.
 Acessar a Documentação Swagger
 A documentação da API está disponível através do Swagger UI. Navegue até http://localhost:5000/swagger em seu navegador para ver a documentação interativa dos endpoints e modelos de dados.
 
-Estrutura dos Endpoints
+Estrutura de Todos os Endpoints do Projeto
 Livros
 GET api/livro/ListarLivros: Lista todos os livros.
 GET api/livro/BuscaLivroPorId/{idLivro}: Busca um livro pelo ID.
