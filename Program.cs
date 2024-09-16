@@ -26,7 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.RoutePrefix = string.Empty; // Configura o Swagger 
+        c.RoutePrefix = string.Empty; 
     });
 }
 
