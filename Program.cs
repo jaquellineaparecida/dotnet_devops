@@ -6,7 +6,6 @@ using WebApp.Services.Livro;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -25,7 +24,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.RoutePrefix = string.Empty; // Configura o Swagger 
+    });
 }
 
 app.UseHttpsRedirection();
@@ -34,4 +36,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Redireciona para a página do Swagger ao acessar a raiz do domínio
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/swagger");
+    return Task.CompletedTask;
+});
+
 app.Run();
+
