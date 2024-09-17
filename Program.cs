@@ -15,7 +15,7 @@ builder.Services.AddScoped<IAutorInterface, AutorService>();
 builder.Services.AddScoped<ILivroInterface, LivroService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
 var app = builder.Build();
